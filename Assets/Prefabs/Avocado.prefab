@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6649877310987468605
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 382536804770220273, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 382536804770220273, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 382536804770220273, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 90e5732c0f28597448df00f953c5c194, type: 3}
+    - target: {fileID: 382536804770220273, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5211325161371602701, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_Name
+      value: Avocado
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.032
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.013
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280724311527077629, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763432810043911519, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: fruitName
+      value: Avocado
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763432810043911519, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: fruitValue
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 8763432810043911519, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      propertyPath: nextFruitPrefab
+      value: 
+      objectReference: {fileID: 8498668635904666039, guid: f21d7fbc75008b9498839fedebca33e4, type: 3}
+    m_RemovedComponents:
+    - {fileID: 7518837087778233220, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5211325161371602701, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1816922700190961297}
+  m_SourcePrefab: {fileID: 100100000, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+--- !u!1 &1448827232495235120 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5211325161371602701, guid: 7168fadbe144b134d9c0f8ebf1ed7f4c, type: 3}
+  m_PrefabInstance: {fileID: 6649877310987468605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &1816922700190961297
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448827232495235120}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.031311255, y: -0.13071224}
+      - {x: 0.031169284, y: -0.12958248}
+      - {x: 0.07172093, y: -0.06758088}
+      - {x: 0.023694055, y: 0.08726465}
+      - {x: 0.006338806, y: 0.13381419}
+      - {x: -0.020092163, y: 0.09411006}
+      - {x: -0.05668236, y: 0.12614128}
+      - {x: -0.1298175, y: 0.13812792}
+      - {x: -0.044338614, y: 0.023607701}
+      - {x: -0.07237441, y: -0.071050785}
+  m_UseDelaunayMesh: 0
