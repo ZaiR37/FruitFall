@@ -5,7 +5,7 @@ public class Fruit : MonoBehaviour
     [SerializeField] string fruitName;
     [SerializeField] int fruitValue;
     [SerializeField] Transform nextFruitPrefab;
-    private bool sameFruitCollided;
+    private bool alreadyCollided;
     private bool fallFruit;
 
     private void Start()
@@ -17,31 +17,55 @@ public class Fruit : MonoBehaviour
     {
         if (!fallFruit && PlayerController.Instance.GetCurrentFruit() == transform)
         {
-            if (other.gameObject.name == "FinalLine") return;
-            PlayerController.Instance.GetNextFruit();
-            ScoreManager.Instance.AddScore(fruitValue);
-            fallFruit = true;
+            FirstContact(other.gameObject);
         }
 
-        if (!other.gameObject.tag.Equals("Fruits")) return;
-        if (!other.gameObject.name.Equals(fruitName)) return;
-        if (sameFruitCollided) return;
-        if (nextFruitPrefab == null) return;
+        if(!CanMerge(other.gameObject)) return;
 
         other.gameObject.GetComponent<Fruit>().SetCollided();
+
+        Transform container = PlayerController.Instance.GetFruitContainer();
+        Vector3 newFruitPosition = MiddlePoint(transform.position, other.transform.position);
 
         Destroy(other.gameObject);
         Destroy(gameObject);
 
-        Transform container = PlayerController.Instance.GetFruitContainer();
-        Transform newFruit = Instantiate(nextFruitPrefab, transform.position, Quaternion.identity, container);
-        newFruit.GetComponent<Fruit>().SetFruitStatus();
+        CreateNewFruit(newFruitPosition, container);
 
         int score = nextFruitPrefab.GetComponent<Fruit>().GetFruitValue() - (fruitValue * 2);
         ScoreManager.Instance.AddScore(score);
     }
 
-    public void SetCollided() => sameFruitCollided = true;
+    private bool CanMerge(GameObject objectCollided)
+    {
+        if (!objectCollided.tag.Equals("Fruits")) return false;
+        if (!objectCollided.name.Equals(fruitName)) return false;
+        if (nextFruitPrefab == null) return false;
+        if (alreadyCollided) return false;
+
+        return true;
+    }
+
+    private void FirstContact(GameObject objectCollided)
+    {
+        if (objectCollided.name == "FinalLine") return;
+        PlayerController.Instance.GetNextFruit();
+        ScoreManager.Instance.AddScore(fruitValue);
+        fallFruit = true;
+    }
+
+    private void CreateNewFruit(Vector3 position, Transform parent)
+    {
+        Transform newFruit = Instantiate(nextFruitPrefab, position, Quaternion.identity, parent);
+        newFruit.GetComponent<Fruit>().SetFruitStatus();
+    }
+
+    private Vector3 MiddlePoint(Vector3 position1, Vector3 position2)
+    {
+        return (position1 + position2) / 2f;
+    }
+
+    public void SetCollided() => alreadyCollided = true;
     public void SetFruitStatus() => fallFruit = true;
     public int GetFruitValue() => fruitValue;
     public bool GetFruitStatus() => fallFruit;
