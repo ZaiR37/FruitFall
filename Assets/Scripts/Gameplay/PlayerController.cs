@@ -1,7 +1,6 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -25,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        AudioPlayer.Instance.PlayGamePlayBGM();
+
         SetNextFruit();
         GetNextFruit();
     }
