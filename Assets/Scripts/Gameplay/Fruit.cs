@@ -32,7 +32,6 @@ public class Fruit : MonoBehaviour
 
         CreateNewFruit(newFruitPosition, container);
 
-        Debug.Log("IsThereNextFruit : " + nextFruitPrefab.GetComponent<Fruit>().IsThereNextFruit());
         if (nextFruitPrefab.GetComponent<Fruit>().IsThereNextFruit()) AudioPlayer.Instance.PlayRandomFruitMergeSFX();
         else AudioPlayer.Instance.PlayLastFruitMergeSFX();
 

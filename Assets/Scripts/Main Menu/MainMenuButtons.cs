@@ -65,7 +65,7 @@ public class MainMenuButtons : MonoBehaviour
     public void ExitGameButton()
     {
         AudioPlayer.Instance.PlayRandomButtonSFX();
-        
+
         Application.Quit();
     }
 }

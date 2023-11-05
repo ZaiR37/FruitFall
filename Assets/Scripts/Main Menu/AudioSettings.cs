@@ -44,9 +44,5 @@ public class AudioSettings : MonoBehaviour
 
     private void SetMasterVolume() => AudioPlayer.Instance.SetMasterVolume(MasterVolumeSlider.value);
     private void SetBGMVolume() => AudioPlayer.Instance.SetBGMVolume(BGMVolumeSlider.value);
-    private void SetSFXVolume()
-    {
-        AudioPlayer.Instance.SetSFXVolume(SFXVolumeSlider.value);
-        AudioPlayer.Instance.PlayRandomButtonSFX();
-    }
+    private void SetSFXVolume() => AudioPlayer.Instance.SetSFXVolume(SFXVolumeSlider.value);
 }
