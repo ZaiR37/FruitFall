@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void DropFruit()
     {
+        AudioPlayer.Instance.PlayDropFruitSFX();
         currentFruit = Instantiate(currentFruit, fruitStartingPoint.position, Quaternion.identity, fruitContainer);
         fruitStartingPoint.GetComponent<SpriteRenderer>().sprite = null;
         SetLine(false);

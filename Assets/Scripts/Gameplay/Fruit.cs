@@ -20,7 +20,7 @@ public class Fruit : MonoBehaviour
             FirstContact(other.gameObject);
         }
 
-        if(!CanMerge(other.gameObject)) return;
+        if (!CanMerge(other.gameObject)) return;
 
         other.gameObject.GetComponent<Fruit>().SetCollided();
 
@@ -31,6 +31,10 @@ public class Fruit : MonoBehaviour
         Destroy(gameObject);
 
         CreateNewFruit(newFruitPosition, container);
+
+        Debug.Log("IsThereNextFruit : " + nextFruitPrefab.GetComponent<Fruit>().IsThereNextFruit());
+        if (nextFruitPrefab.GetComponent<Fruit>().IsThereNextFruit()) AudioPlayer.Instance.PlayRandomFruitMergeSFX();
+        else AudioPlayer.Instance.PlayLastFruitMergeSFX();
 
         int score = nextFruitPrefab.GetComponent<Fruit>().GetFruitValue() - (fruitValue * 2);
         ScoreManager.Instance.AddScore(score);
@@ -65,6 +69,7 @@ public class Fruit : MonoBehaviour
         return (position1 + position2) / 2f;
     }
 
+    public bool IsThereNextFruit() => nextFruitPrefab != null;
     public void SetCollided() => alreadyCollided = true;
     public void SetFruitStatus() => fallFruit = true;
     public int GetFruitValue() => fruitValue;
