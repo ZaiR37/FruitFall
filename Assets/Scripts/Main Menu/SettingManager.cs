@@ -18,6 +18,22 @@ public class SettingManager : MonoBehaviour
 
     private bool audioTab, gameTab;
 
+    private void Start()
+    {
+        firstTab.isOn = true;
+    }
+
+    public void OpenSettings()
+    {
+        AudioPlayer.Instance.PlayRandomButtonSFX();
+
+        settingsCanvas.alpha = 1;
+        settingsCanvas.interactable = true;
+        settingsCanvas.blocksRaycasts = true;
+
+        audioSettings.SubscribeOnValueChanged();
+    }
+
     public void CloseSettings()
     {
         settingsCanvas.alpha = 0;

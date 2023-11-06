@@ -36,7 +36,7 @@ public class Fruit : MonoBehaviour
         else AudioPlayer.Instance.PlayLastFruitMergeSFX();
 
         int score = nextFruitPrefab.GetComponent<Fruit>().GetFruitValue() - (fruitValue * 2);
-        ScoreManager.Instance.AddScore(score);
+        ScoreManager.Instance.ChangeScore(score);
     }
 
     private bool CanMerge(GameObject objectCollided)
@@ -53,7 +53,7 @@ public class Fruit : MonoBehaviour
     {
         if (objectCollided.name == "FinalLine") return;
         PlayerController.Instance.GetNextFruit();
-        ScoreManager.Instance.AddScore(fruitValue);
+        ScoreManager.Instance.ChangeScore(fruitValue);
         fallFruit = true;
     }
 

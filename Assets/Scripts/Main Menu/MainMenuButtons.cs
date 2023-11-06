@@ -12,10 +12,6 @@ public class MainMenuButtons : MonoBehaviour
     [SerializeField] private CanvasGroup scoreboardCanvas;
     [SerializeField] private Scrollbar scoreboardScrollbar;
 
-    [Header("Settings")]
-    [SerializeField] private CanvasGroup settingsCanvas;
-    [SerializeField] private AudioSettings audioSettings;
-
     private void Start()
     {
         AudioPlayer.Instance.PlayMainMenuBGM();
@@ -49,17 +45,6 @@ public class MainMenuButtons : MonoBehaviour
 
         EventSystem eventSystem = EventSystem.current;
         eventSystem.SetSelectedGameObject(playButton.gameObject);
-    }
-
-    public void OpenSettings()
-    {
-        AudioPlayer.Instance.PlayRandomButtonSFX();
-
-        settingsCanvas.alpha = 1;
-        settingsCanvas.interactable = true;
-        settingsCanvas.blocksRaycasts = true;
-
-        audioSettings.SubscribeOnValueChanged();
     }
 
     public void ExitGameButton()

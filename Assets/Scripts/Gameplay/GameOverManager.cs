@@ -55,12 +55,16 @@ public class GameOverManager : MonoBehaviour
 
     public void RestartScene()
     {
+        AudioPlayer.Instance.PlayRandomButtonSFX();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         SaveNewScore();
     }
 
     public void ReturnToMainMenu()
     {
+        AudioPlayer.Instance.PlayRandomButtonSFX();
+
         SceneManager.LoadScene("Main Menu");
         SaveNewScore();
     }

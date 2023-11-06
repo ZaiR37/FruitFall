@@ -11,8 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject fallLine;
     [SerializeField] List<Transform> fruitList;
 
-    private bool fruitIsFalling;
-    private bool gameOver;
+    [SerializeField] CanvasGroup pauseTransform;
+
+    private bool fruitIsFalling, gameOver, inPause;
 
     [SerializeField] private Transform currentFruit, nextFruit;
 
@@ -32,12 +33,35 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (gameOver) return;
-        if (fruitIsFalling) return;
-        if (Input.GetMouseButtonDown(0))
+        if (Stop()) return;
+        else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            DropFruit();
+            if (!inPause) Pause();
         }
+        else if (fruitIsFalling) return;
+        else if (Input.GetMouseButtonDown(0)) DropFruit();
+    }
+
+    private void Pause()
+    {
+        AudioPlayer.Instance.PlayRandomButtonSFX();
+
+        inPause = true;
+
+        pauseTransform.alpha = 1;
+        pauseTransform.interactable = true;
+        pauseTransform.blocksRaycasts = true;
+    }
+
+    public void UnPause()
+    {
+        AudioPlayer.Instance.PlayRandomButtonSFX();
+        
+        inPause = false;
+
+        pauseTransform.alpha = 0;
+        pauseTransform.interactable = false;
+        pauseTransform.blocksRaycasts = false;
     }
 
     private void DropFruit()
@@ -74,7 +98,6 @@ public class PlayerController : MonoBehaviour
 
     private Transform SelectRandomFruit()
     {
-
         if (fruitList.Count == 0)
         {
             Debug.LogError("The fruit list is empty.");
@@ -85,8 +108,10 @@ public class PlayerController : MonoBehaviour
         return fruitList[randomIndex];
     }
 
+    public bool Stop() => inPause || gameOver;
     private void SetLine(bool status) => fallLine.SetActive(status);
+
     public Transform GetFruitContainer() => fruitContainer;
     public Transform GetCurrentFruit() => currentFruit;
-    public void SetGameOver()=> gameOver = true;
+    public void SetGameOver() => gameOver = true;
 }

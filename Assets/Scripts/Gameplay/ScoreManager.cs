@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
         highscoreList = HighscoreManager.SortHighScore(highscoreList);
     }
 
-    public void AddScore(int number)
+    public void ChangeScore(int number)
     {
         int desiredLength = 7;
         score += number;

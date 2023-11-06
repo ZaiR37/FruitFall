@@ -14,22 +14,43 @@ public class GameSettings : MonoBehaviour
     [SerializeField] private Toggle firstQuality;
     [SerializeField] private TMP_Dropdown resolutionDropDown;
 
-    private Quality currentQuality= Quality.HIGH;
-
+    private Quality currentQuality = Quality.HIGH;
     private bool isFullScreen = true;
 
     private void Start()
     {
-        QualitySettings.SetQualityLevel(2);
-        currentQuality = Quality.HIGH;
-        firstQuality.isOn = true;
+        QualitySettings.SetQualityLevel(QualitySettings.GetQualityLevel());
+        switch (QualitySettings.GetQualityLevel())
+        {
+            case 0:
+                currentQuality = Quality.LOW;
+                break;
+            case 1:
+                currentQuality = Quality.MEDIUM;
+                break;
+            case 2:
+                currentQuality = Quality.HIGH;
+                break;
+        }
 
-        ResolutionDropDown(0);
-        resolutionDropDown.SetValueWithoutNotify(0);
+        switch (Screen.width)
+        {
+            case 1920:
+                resolutionDropDown.SetValueWithoutNotify(0);
+                break;
+            case 1280:
+                resolutionDropDown.SetValueWithoutNotify(1);
+                break;
+            case 640:
+                resolutionDropDown.SetValueWithoutNotify(2);
+                break;
+        }
     }
 
     public void ResolutionDropDown(int value)
     {
+        AudioPlayer.Instance.PlayRandomButtonSFX();
+
         int screenWidth = 0;
         int screenHeight = 0;
 
