@@ -1,13 +1,14 @@
-using TMPro;
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
 
     [SerializeField] TextMeshProUGUI textMeshPro;
-
-    int score;
+    [SerializeField] int score;
+    private List<Highscore> highscoreList;
 
     private void Awake()
     {
@@ -17,12 +18,34 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        textMeshPro.text = "0000000000";
+        textMeshPro.text = "0000000";
+
+        string loadedString = PlayerPrefs.GetString("highscore");
+        SerializableList<Highscore> serializableList = JsonUtility.FromJson<SerializableList<Highscore>>(loadedString);
+        highscoreList = serializableList.list;
+    }
+
+    public bool IsHigscoreUnderTwenties(Highscore highscore)
+    {
+        int index = highscoreList.IndexOf(highscore);
+
+        if (index < 20)
+        {
+            highscoreList.Remove(highscore);
+            return true;
+        }
+        else return false;
+    }
+
+    public void AddScoreToList(Highscore newHighscore)
+    {
+        highscoreList.Add(newHighscore);
+        highscoreList = HighscoreManager.SortHighScore(highscoreList);
     }
 
     public void AddScore(int number)
     {
-        int desiredLength = 10;
+        int desiredLength = 7;
         score += number;
 
         string scoreString = score.ToString();
@@ -31,5 +54,6 @@ public class ScoreManager : MonoBehaviour
         textMeshPro.text = scoreString;
     }
 
+    public List<Highscore> GetHighscoreList() => highscoreList;
     public int GetScore() => score;
 }
